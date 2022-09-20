@@ -1,0 +1,17 @@
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h4 {
+    margin: 10px;
+    cursor: pointer;
+}
+.image {
+    width: 100%;
+}
+.image img {
+    width: 100%;
+    height: auto;
+}
