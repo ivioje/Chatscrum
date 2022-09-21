@@ -40,7 +40,6 @@ const SignIn = () => {
                             <br />
                             <input type={input.type} name={input.name} {...register(input.name, 'formRequired', { requird: true })} />
                             <p className='message'>{errors[input.name]?.message}</p>
-
                         </div>
                     )
                 })}
