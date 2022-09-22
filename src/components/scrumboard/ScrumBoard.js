@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import Data from '../../static/data';
 import './scrumboard.css'
 
 const ScrumBoard = () => {
-    const [data, setData] = useState(Data);
     const [isOpen, setIsOpen] = useState(false);
     const [task, setTask] = useState(null);
 
@@ -24,20 +22,23 @@ const ScrumBoard = () => {
         e.preventDefault();
         setIsOpen(false)
     }
+    const name = localStorage.getItem('name');
+    const userType = localStorage.getItem('userType');
+    const projectName = localStorage.getItem('projectName');
 
-    console.log('logged in as', data.name);
+    console.log('logged in as', name);
     return (
         <div className='scrumboard'>
             <nav>
                 <h1>CHATSCRUM</h1>
                 <div className='var'>
-                    <p>User type: {Data.userType}</p>
-                    <p>Project name: {Data.projectType}</p>
+                    <p>User type: {userType}</p>
+                    <p>Project name: {projectName}</p>
                 </div>
             </nav>
             <div className='scrum_content'>
                 <div className='welcome'>
-                    <p id='info'>Hello {Data.name}. Welcome to your scrumboard</p>
+                    <p id='info'>Hello {name}. Welcome to your scrumboard</p>
                 </div>
                 <div className='scrum_container'>
                     <div className='weekly box'>

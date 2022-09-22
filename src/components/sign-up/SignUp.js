@@ -27,7 +27,14 @@ const SignUp = () => {
         }
     );
 
-    const onSubmit = (data) => console.log(data);
+    const onSubmit = (data) => {
+        localStorage.setItem('name', data.fullname);
+        localStorage.setItem('userType', data.type);
+        localStorage.setItem('projectName', data.projectname);
+        console.log('Successful');
+    }
+    // console.log(data.fullname);
+
     return (
         <div className='form_container'>
             <h1>Don't have an account?</h1>
