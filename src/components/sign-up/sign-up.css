@@ -1,4 +1,4 @@
-form {
+/* form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,11 +38,7 @@ h1, h3 {
     opacity: .7;
 }
 
-.message {
-    color: red;
-    font-size: 15px;
-    font-weight: 600;
-}
+
 .label {
     display: inline-block;
     width: 100%;
@@ -55,4 +51,51 @@ button a {
 }
 button:hover a {
     color: rgb(16, 16, 90);
+} */
+
+.form_container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   margin: 3rem;
+   border: 1px solid rgb(233, 233, 233);
+   padding: 1rem;
+   background-color: aliceblue;
+}
+.form_container h1, .form_container h3 {
+    margin: 1rem;
+}
+.form_container h1 {
+    font-weight: 400;
+}
+.form_container h3 {
+margin-bottom: 2rem;
+}
+.inputs {
+    text-align: left;
+    width: 100%;
+    padding: 10px;
+}
+.form_container label{
+    padding: 3px;
+}
+.message {
+    color: red;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+    width:50%;
+}
+.form_container button {
+    width: 100%;
+}
+.form_container input {
+    text-align: left;
+}
+.form_footer {
+margin: 10px;
+}
+.form_footer >* {
+    padding: .5rem;
 }

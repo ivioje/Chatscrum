@@ -28,25 +28,27 @@ const SignIn = () => {
     const onSubmit = (data) => console.log(data);
 
     return (
-        <div>
+        <div className='form_container'>
             <h1>Have an account already?</h1>
             <h3>Sign in here!</h3>
 
             <form onSubmit={handleSubmit(onSubmit)}>
                 {content.otherInputs.map((input, key) => {
                     return (
-                        <div key={key}>
+                        <div className='inputs' key={key}>
                             <label htmlFor={input.name}>{input.label}</label>
                             <br />
-                            <input type={input.type} name={input.name} {...register(input.name, 'formRequired', { requird: true })} />
+                            <input type={input.type} placeholder={input.placeholder} name={input.name} {...register(input.name, 'formRequired', { requird: true })} />
                             <p className='message'>{errors[input.name]?.message}</p>
                         </div>
                     )
                 })}
 
-                <Link to='/scrumboard'><button>SIGN IN</button> </Link>
-                <p>Don't have an account? <Link to='/signUp'>Sign up</Link></p>
-                <Link to='/'>Back to Home</Link>
+                <button type='submit'><Link to='/scrumboard'> SIGN IN </Link></button>
+                <div className='form_footer'>
+                    <p>Don't have an account? <Link to='/signUp'>Sign up</Link></p>
+                    <Link to='/'>Back to Home</Link>
+                </div>
             </form>
         </div>
     )
