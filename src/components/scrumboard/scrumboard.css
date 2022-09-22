@@ -17,6 +17,12 @@ nav {
 }
 .var {
     display: flex;
+    flex-flow: column wrap;
+    width: 200px;
+    align-items: flex-start;
+}
+.var p {
+    padding: 3px;
 }
 .show {
     display: flex;
@@ -90,20 +96,4 @@ padding: 50px;
 }
 #modal input {
     text-align: left;
-}
-#profile_modal {
-    background-color: rgb(202, 202, 202);
-    position: absolute;
-    top: 50px;
-    left: 85%;
-    width: 200px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    flex-flow: column wrap;
-    text-align: left;
-}
-#profile_modal >* {
-padding: 5px;
-text-align: left !important;
 }
