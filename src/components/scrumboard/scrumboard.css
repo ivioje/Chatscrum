@@ -13,7 +13,6 @@ nav {
     margin-bottom: 100px;
     color: wheat;
     padding: 1rem;
-    border: 1px solid;
 }
 .var {
     display: flex;
@@ -70,23 +69,6 @@ padding: 50px;
     justify-content: space-around;
 }
 
-.box {
-    border: 1px solid;
-    margin: 1rem;
-    padding: .5rem;
-    width: 50%;
-}
-.weekly h3, .daily h3 {
-    padding: 1px;
-    background-color: rgb(173, 173, 173);
-    color: rgb(16, 16, 90);
-}
-.weekly p, .daily p {
-    height: 200px;
-    background-color: aliceblue;
-    text-align: left;
-    padding: .2rem;
-}
 #modal {
     border: 1px solid rgb(223, 226, 236);
     padding: 1rem 1rem 3rem 1rem;

@@ -1,4 +1,4 @@
-export const content = {
+const content = {
     inputs: [
         {
             label: 'Full Name',

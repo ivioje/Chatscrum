@@ -1,0 +1,22 @@
+.box {
+    margin: 1rem;
+    padding: .5rem;
+    width: 50%;
+    height: 300px;
+}
+.weekly h3, .daily h3 {
+    padding: 1px;
+    background-color: rgb(173, 173, 173);
+    color: rgb(16, 16, 90);
+}
+.weekly, .daily {
+    background-color: aliceblue;
+    text-align: left;
+    padding: .2rem;
+}
+.items {
+    text-align: left;
+    padding: 5px;
+    text-transform: capitalize;
+    background: red;
+}

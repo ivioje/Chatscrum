@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './scrumboard.css'
+import './scrumboard.css';
+import Task from '../task/Task'
 
 const ScrumBoard = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -40,16 +41,8 @@ const ScrumBoard = () => {
                 <div className='welcome'>
                     <p id='info'>Hello {name}. Welcome to your scrumboard</p>
                 </div>
-                <div className='scrum_container'>
-                    <div className='weekly box'>
-                        <h3>Weekly tasks</h3>
-                        <p id='box'>{task}</p>
-                    </div>
-                    <div className='daily box'>
-                        <h3>Daily Target</h3>
-                        <p></p>
-                    </div>
-                </div>
+                
+                <Task />
 
                 <div id='modal' className={isOpen ? 'show' : 'hidden'}>
                     <div className='header'>
