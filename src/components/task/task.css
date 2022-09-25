@@ -4,19 +4,28 @@
     width: 50%;
     height: 300px;
 }
-.weekly h3, .daily h3 {
+
+.weekly h3,
+.daily h3 {
     padding: 1px;
     background-color: rgb(173, 173, 173);
     color: rgb(16, 16, 90);
 }
-.weekly, .daily {
+
+.weekly,
+.daily {
     background-color: aliceblue;
     text-align: left;
     padding: .2rem;
+    -webkit-box-shadow: 10px 11px 17px -11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 11px 17px -11px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 11px 17px -11px rgba(0, 0, 0, 0.75);
 }
-.items {
+
+.weekly p,
+.daily p {
     text-align: left;
     padding: 5px;
     text-transform: capitalize;
-    background: red;
+    background: rgb(173, 173, 173);
 }

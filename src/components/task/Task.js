@@ -56,15 +56,19 @@ const Task = () => {
                                     return (
                                         <Draggable draggableId={id} key={id} index={index}>
                                             {(provided, snapshot) => (
-                                                <div className='items' ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} >
-                                                    {item}
-                                                    {provided.placeholder}
+                                                <div>
+                                                    <p className='items' ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} >
+                                                        {item}
+                                                    </p>
+                                                    < hr />
                                                 </div>
+
                                             )}
 
                                         </Draggable>
                                     )
                                 })}
+                                {provided.placeholder}
                             </div>
                         )}
                     </Droppable>
@@ -77,14 +81,17 @@ const Task = () => {
                                     return (
                                         <Draggable key={id} draggableId={id} index={index} >
                                             {(provided, snapshot) => (
-                                                <div className='item' ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} >
-                                                    {item}
-                                                    {provided.placeholder}
+                                                <div>
+                                                    <p className='item' ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} >
+                                                        {item}
+                                                    </p>
+                                                    <hr />
                                                 </div>
                                             )}
                                         </Draggable>
                                     )
                                 })}
+                                {provided.placeholder}
                             </div>
                         )}
                     </Droppable>

@@ -1,28 +1,19 @@
 import React, { useState } from 'react';
 import './scrumboard.css';
 import Task from '../task/Task'
+import AddTask from './addTask';
 
 const ScrumBoard = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [task, setTask] = useState(null);
+    const [content, setContent] = useState('')
+    const [tasks, setTasks] = useState([]);
 
+const addTask = (task) => {
+    task.id = Math.random().toString(36).slice(2, 9);
+    let newTasks = [...tasks, task]
+    setTasks(newTasks)
+}
 
-    const openModal = () => {
-        setIsOpen(true)
-    }
-
-    const closeModal = () => {
-        setIsOpen(false)
-    }
-
-    const handleChange = (e) => {
-        setTask(e.target.value)
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setIsOpen(false)
-    }
     const name = localStorage.getItem('name');
     const userType = localStorage.getItem('userType');
     const projectName = localStorage.getItem('projectName');
@@ -41,22 +32,16 @@ const ScrumBoard = () => {
                 <div className='welcome'>
                     <p id='info'>Hello {name}. Welcome to your scrumboard</p>
                 </div>
-                
+
                 <Task />
+                <AddTask
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    content={content}
+                    setContent={setContent}
+                    addTask={addTask}
+                />
 
-                <div id='modal' className={isOpen ? 'show' : 'hidden'}>
-                    <div className='header'>
-                        <h5>Add a new task</h5>
-                        <h5 id='close' onClick={() => closeModal()}>close</h5>
-                    </div>
-
-                    <form onSubmit={handleSubmit}>
-                        <input type='text' onChange={handleChange} />
-                        <button>CONFIRM</button>
-                    </form>
-                </div>
-
-                <button className='add' onClick={() => openModal()}>ADD TASK</button>
             </div>
         </div>
     )
