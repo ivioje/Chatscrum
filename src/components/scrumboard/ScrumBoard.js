@@ -9,7 +9,6 @@ const ScrumBoard = () => {
     const [tasks, setTasks] = useState([{task: '', id: ''}]);
 
     const addTask = task => {
-      //task.id = ;
       const item = {task: task, id: Math.random().toString(36).slice(2, 9)}
         let newTasks = [...tasks, item];
         setTasks(newTasks)
@@ -36,6 +35,7 @@ const ScrumBoard = () => {
                 </div>
 
                 <Task data={tasks} />
+                
                 <AddTask
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}
