@@ -6,13 +6,14 @@ import AddTask from './addTask';
 const ScrumBoard = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [content, setContent] = useState('')
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState([{task: '', id: ''}]);
 
-    const addTask = (task) => {
-       // task.id = Math.random().toString(36).slice(2, 9);
-        let newTasks = [...tasks, task];
+    const addTask = task => {
+      //task.id = ;
+      const item = {task: task, id: Math.random().toString(36).slice(2, 9)}
+        let newTasks = [...tasks, item];
         setTasks(newTasks)
-        console.log(task);
+        console.log(task, 'the task');
     }
 
     const name = localStorage.getItem('name');

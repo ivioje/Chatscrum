@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './task.css'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const Task = ({ data }) => {
 
-    const [weeklyTasks, updateWeeklyTasks] = useState(data);
+    const [weeklyTasks, updateWeeklyTasks] = useState([data]);
     const [dailyTasks, setDailyTasks] = useState([]);
+
+    // useEffect(() => {
+    //     updateWeeklyTasks(data)
+    // }, [data])
 
     const handleOnDragEnd = result => {
         if (!result.destination) return;
@@ -41,6 +45,7 @@ const Task = ({ data }) => {
             }
         }
     }
+    console.log(weeklyTasks, 'weekly task');
 
     return (
         <DragDropContext onDragEnd={handleOnDragEnd}>
@@ -51,13 +56,13 @@ const Task = ({ data }) => {
                             <div className='weekly box' {...provided.droppableProps} ref={provided.innerRef} >
                                 <h3>Weekly tasks</h3>
 
-                                {weeklyTasks.map(({ content, id }, index) => {
+                                {/* {Object.keys(weeklyTasks).map((content) => {
                                     return (
-                                        <Draggable draggableId={id} key={id} index={index}>
+                                        <Draggable draggableId={content.id} key={content.id} index={content.id}>
                                             {(provided, snapshot) => (
                                                 <div>
                                                     <p className='items' ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} >
-                                                        {content}
+                                                        {weeklyTasks[content]}
                                                     </p>
                                                     < hr />
                                                 </div>
@@ -65,8 +70,8 @@ const Task = ({ data }) => {
                                             )}
 
                                         </Draggable>
-                                    )
-                                })}
+                                    )})} */}
+                                            
                                 {provided.placeholder}
                             </div>
                         )}

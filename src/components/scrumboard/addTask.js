@@ -25,6 +25,7 @@ const AddTask = ({
         e.preventDefault();
         setIsOpen(false)
         addTask(content);
+        setContent('');
         console.log(content, 'content created');
     }
 
@@ -37,7 +38,7 @@ const AddTask = ({
                 </div>
 
                 <form onSubmit={handleSubmit}>
-                    <input type='text' onChange={handleChange} />
+                    <input type='text' value={content} onChange={handleChange} />
                     <button>CONFIRM</button>
                 </form>
             </div>
