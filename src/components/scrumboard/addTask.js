@@ -26,7 +26,8 @@ const AddTask = ({
         setIsOpen(false)
         addTask(content);
         setContent('');
-        console.log(content, 'content created');
+        
+       // console.log(content, 'content created');
     }
 
     return (

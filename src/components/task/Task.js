@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './task.css'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
-const Task = ({ data }) => {
+const Task = ({ data, deleteTask }) => {
   const [weeklyTasks, updateWeeklyTasks] = useState([])
   const [dailyTasks, setDailyTasks] = useState([])
 
@@ -68,6 +68,7 @@ const Task = ({ data }) => {
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
+                          onClick={() => deleteTask(tasks.id)}
                         >
                           {tasks.task}
                         </p>

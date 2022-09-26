@@ -6,13 +6,20 @@ import AddTask from './addTask';
 const ScrumBoard = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [content, setContent] = useState('')
-    const [tasks, setTasks] = useState([{task: '', id: ''}]);
+    const [tasks, setTasks] = useState([{ task: '', id: '' }]);
 
     const addTask = task => {
-      const item = {task: task, id: Math.random().toString(36).slice(2, 9)}
+        const item = { task: task, id: Math.random().toString(36).slice(2, 9) }
         let newTasks = [...tasks, item];
         setTasks(newTasks)
         console.log(task, 'the task');
+    }
+
+    const deleteTask = (id) => {
+        const filteredTasks = tasks.filter(task => {
+            return task.id !== id
+        })
+        setTasks(filteredTasks)
     }
 
     const name = localStorage.getItem('name');
@@ -34,8 +41,8 @@ const ScrumBoard = () => {
                     <p id='info'>Hello {name}. Welcome to your scrumboard</p>
                 </div>
 
-                <Task data={tasks} />
-                
+                <Task data={tasks} deleteTask={deleteTask} />
+
                 <AddTask
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}
