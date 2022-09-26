@@ -8,11 +8,12 @@ const ScrumBoard = () => {
     const [content, setContent] = useState('')
     const [tasks, setTasks] = useState([]);
 
-const addTask = (task) => {
-    task.id = Math.random().toString(36).slice(2, 9);
-    let newTasks = [...tasks, task]
-    setTasks(newTasks)
-}
+    const addTask = (task) => {
+       // task.id = Math.random().toString(36).slice(2, 9);
+        let newTasks = [...tasks, task];
+        setTasks(newTasks)
+        console.log(task);
+    }
 
     const name = localStorage.getItem('name');
     const userType = localStorage.getItem('userType');
@@ -33,7 +34,7 @@ const addTask = (task) => {
                     <p id='info'>Hello {name}. Welcome to your scrumboard</p>
                 </div>
 
-                <Task />
+                <Task data={tasks} />
                 <AddTask
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}

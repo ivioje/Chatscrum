@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import taskList from '../../static/tasks';
 import './task.css'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-const Task = () => {
+const Task = ({ data }) => {
 
-    const [weeklyTasks, updateWeeklyTasks] = useState(taskList);
+    const [weeklyTasks, updateWeeklyTasks] = useState(data);
     const [dailyTasks, setDailyTasks] = useState([]);
 
     const handleOnDragEnd = result => {
@@ -52,13 +51,13 @@ const Task = () => {
                             <div className='weekly box' {...provided.droppableProps} ref={provided.innerRef} >
                                 <h3>Weekly tasks</h3>
 
-                                {weeklyTasks.map(({ item, id }, index) => {
+                                {weeklyTasks.map(({ content, id }, index) => {
                                     return (
                                         <Draggable draggableId={id} key={id} index={index}>
                                             {(provided, snapshot) => (
                                                 <div>
                                                     <p className='items' ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} >
-                                                        {item}
+                                                        {content}
                                                     </p>
                                                     < hr />
                                                 </div>

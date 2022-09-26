@@ -7,22 +7,25 @@ const AddTask = ({
     setContent,
     addTask }) => {
 
-    const openModal = () => {
-        setIsOpen(true)
-    }
-
-    const closeModal = () => {
-        setIsOpen(false)
-    }
-
-    const handleChange = (e) => {
-        setContent(e.target.value)
-    }
-
+        
+        
+        const openModal = () => {
+            setIsOpen(true)
+        }
+        
+        const closeModal = () => {
+            setIsOpen(false)
+        }
+        
+        const handleChange = (e) => {
+            setContent(e.target.value)
+        }
+        
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsOpen(false)
         addTask(content);
+        console.log(content, 'content created');
     }
 
     return (
