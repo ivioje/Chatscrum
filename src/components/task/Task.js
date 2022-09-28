@@ -59,19 +59,27 @@ const Task = ({ data, deleteTask }) => {
               >
                 <h3>Weekly tasks</h3>
 
-                {weeklyTasks.map((tasks, index) => (
-                  <Draggable draggableId={tasks.id} key={tasks.id} index={index} >
+                {weeklyTasks.map(({id, name, time_created, scrumgoalhistory_set}, index) => (
+                  <Draggable draggableId={`${id}`} key={id} index={index} >
                     {(provided, snapshot) => (
                       <div>
-                        <p
+                        <div
                           className='items'
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
-                          onClick={() => deleteTask(tasks.id)}
+                          onClick={() => deleteTask(id)}
                         >
-                          {tasks.task}
-                        </p>
+                          {name } <br />
+                          <small className='time'>{time_created.slice(0, 10)} at {time_created.slice(12, 16)} </small>
+                          <span>
+                            {scrumgoalhistory_set.map(({id, done_by}) => {
+                              return (
+                                <p key={id} className='author'>{done_by}</p>
+                              )
+                            })}
+                          </span>
+                        </div>
                         <hr />
                       </div>
                     )}
@@ -91,19 +99,27 @@ const Task = ({ data, deleteTask }) => {
                 ref={provided.innerRef}
               >
                 <h3>Daily Target</h3>
-                {dailyTasks.map((tasks, index) => {
+                {dailyTasks.map(({id, name, time_created, scrumgoalhistory_set}, index) => {
                   return (
-                    <Draggable key={tasks.id} draggableId={tasks.id} index={index}>
+                    <Draggable key={id} draggableId={`${id}`} index={index}>
                       {(provided, snapshot) => (
                         <div>
-                          <p
-                            className='item'
+                          <div
+                            className='items'
                             ref={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
                           >
-                            {tasks.task}
-                          </p>
+                            {name}
+                          <small>{time_created.slice(0, 10)} at {time_created.slice(12, 16)} </small>
+                          <span>
+                            {scrumgoalhistory_set.map(({id, done_by}) => {
+                              return (
+                                <p key={id} className='author'>{done_by}</p>
+                              )
+                            })}
+                          </span>
+                          </div>
                           <hr />
                         </div>
                       )}

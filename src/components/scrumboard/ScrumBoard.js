@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './scrumboard.css';
 import Task from '../task/Task'
 import AddTask from './addTask';
 import Users from '../../users/Users';
+import axios from 'axios';
 
 const ScrumBoard = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [content, setContent] = useState('')
-    const [tasks, setTasks] = useState([{ task: '', id: '' }]);
+    const [tasks, setTasks] = useState([]);
     const [loading, setLoading] = useState(true)
 
 
@@ -25,6 +26,11 @@ const ScrumBoard = () => {
         setTasks(filteredTasks)
     }
 
+
+    useEffect(() => {
+        axios.get('http://liveapi.chatscrum.com/scrum/api/scrumgoals/')
+            .then(res => setTasks(res.data))
+    }, [setTasks])
 
     const name = localStorage.getItem('name');
     const userType = localStorage.getItem('userType');
@@ -56,7 +62,7 @@ const ScrumBoard = () => {
                     addTask={addTask}
                 />
 
-                <Users  />
+                <Users />
 
             </div>
         </div>
