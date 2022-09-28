@@ -1,0 +1,50 @@
+.users {
+    padding: 7px;
+    border-bottom: 1px solid rgb(94, 94, 94);
+    color: #333;
+    width: fit-content;
+    text-align: center;
+
+}
+.main {
+    box-shadow: 2px 4px 6px gray;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    background-color: aliceblue;
+    
+}
+
+h4 {
+    text-align: center;
+    background-color: rgb(172, 172, 172);
+    padding: 5px;
+    color: #333;
+    margin: 0;
+    width: auto;
+}
+#userList {
+    transform: translateY(200px);
+    animation: slideup 200ms linear 1 forwards;
+
+}
+@keyframes slideup {
+    from {
+        transform: translateY(200px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+.show {
+    display: block;
+    background-color: aliceblue;
+    width: 200px;
+    box-shadow: 2px 4px 6px gray;
+
+
+}
+.hidden {
+    visibility: hidden;
+}
